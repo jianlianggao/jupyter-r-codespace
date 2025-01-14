@@ -1,6 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/base:ubuntu
-RUN sudo apt update && \
-    sudo apt install -y --no-install-recommends r-base
+FROM ghcr.io/rocker-org/devcontainer/tidyverse:4
 RUN sudo apt update && sudo apt install -y pandoc
 #RUN R -e "install.packages('tinytex')"
 #RUN R -e "tinytex::install_tinytex()"
