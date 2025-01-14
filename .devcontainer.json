@@ -1,0 +1,13 @@
+{
+ "build": {
+ "dockerfile": "Dockerfile"
+ },
+"customizations": {
+"vscode": {
+   "extensions": [
+   "REditorSupport.r",
+   "DavidAnson.vscode-markdownlint"
+   ]
+  }
+ }
+}
