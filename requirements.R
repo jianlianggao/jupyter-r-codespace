@@ -1,0 +1,5 @@
+install.packages('languageserver', ask = FALSE)
+install.packages("rmarkdown", ask = FALSE)
+install.packages('jsonlite', ask = FALSE)
+install.packages('dplyr', ask = FALSE)
+tinytex::install_tinytex()
