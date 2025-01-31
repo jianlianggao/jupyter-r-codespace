@@ -1,13 +1,21 @@
 {
- "build": {
- "dockerfile": "Dockerfile"
- },
-"customizations": {
-"vscode": {
-   "extensions": [
-   "REditorSupport.r",
-   "DavidAnson.vscode-markdownlint"
-   ]
-  }
- }
+  "image": "mcr.microsoft.com/devcontainers/python:3",
+  "features": {
+      "ghcr.io/rocker-org/devcontainer-features/r-apt:latest": {
+          "vscodeRSupport": "lsp",
+          "installRMarkdown": "true"
+      },
+      "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+          "packages": "r-cran-dplyr, r-cran-irkernel"
+      },
+      "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
+          "installTinyTex": "true"
+      }
+  },
+  "overrideFeatureInstallOrder": [
+      "ghcr.io/rocker-org/devcontainer-features/r-apt",
+      "ghcr.io/rocker-org/devcontainer-features/apt-packages"
+  ],
+  "postCreateCommand": "python3 -m pip install jupyter && R -e 'IRkernel::installspec()'"
 }
+
