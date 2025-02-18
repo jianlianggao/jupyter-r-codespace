@@ -15,7 +15,7 @@
       "packages": "languageserver"
     },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
-      "installTinyTex": "true"
+      "installTinyTex": "false"
     }
   },
   "customizations": {
