@@ -1,5 +1,15 @@
 {
   "image": "rocker/binder:latest",
+  "settings": {
+    "extensions.ignoreRecommendations": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "git.autofetch": true,
+    "git.rebaseWhenSync": true,
+    "files.exclude": {
+      ".devcontainer.json": true
+    }
+  },
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
       "packages": "languageserver"
