@@ -1,5 +1,9 @@
-# MSc_Fin_R_test
+# JupyteR Environment
 
-Launch a Codespace and start coding in `notebook.ipynb`
+This Codespace provides a Jupyter environment for coding with R. Simply launch a Codespace and start coding. See an example in `notebook.ipynb`.
 
-Run `quarto render notebook.ipynb --to pdf` to render the file using Quarto.
+Quarto is provided for exporting the Notebook to presentation formats. Render the example notebook with the below command:
+
+```bash
+quarto render notebook.ipynb --to pdf
+```
