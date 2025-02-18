@@ -2,16 +2,15 @@
   "image": "rocker/binder:latest",
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-        "packages": "languageserver,httpgd"
+      "packages": "languageserver,httpgd"
     },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
-        "installTinyTex": "true"
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": ["reditorsupport.r", "ms-toolsai.jupyter"]
-        }
+      "installTinyTex": "true"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["reditorsupport.r", "ms-toolsai.jupyter", "ms-toolsai.datawrangler"]
     }
   }
 }
-
