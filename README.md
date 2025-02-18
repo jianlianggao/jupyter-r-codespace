@@ -1,8 +1,5 @@
 # MSc_Fin_R_test
 
-After started a codespace, click on attach R from bottom right corner, then run
-`source("requirements.R")`.
-Wait until all installation is completed, type `q()` to quit and re-click attach R.
+Launch a Codespace and start coding in `notebook.ipynb`
 
-Then, you should be read to creat a test.Rmd file and write something to render into a PDF file by the following code
-`rmarkdown::render("test.Rmd", output_format = "pdf_document")`
+Run `quarto render notebook.ipynb --to pdf` to render the file using Quarto.
