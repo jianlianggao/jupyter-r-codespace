@@ -11,11 +11,8 @@
     }
   },
   "features": {
-    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-      "packages": "languageserver"
-    },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
-      "installTinyTex": "false"
+      "installTinyTex": "true"
     }
   },
   "customizations": {
@@ -26,5 +23,6 @@
         "jaydesl.vscode-r-arrow"
       ]
     }
-  }
+  },
+  "postCreateCommand": "R -e 'install.packages(\"languageserver\")'"
 }
