@@ -1,5 +1,5 @@
 {
-  "image": "rocker/binder:latest",
+  "image": "rocker/binder:4.3",
   "settings": {
     "extensions.ignoreRecommendations": true,
     "git.enableSmartCommit": true,
@@ -11,8 +11,11 @@
     }
   },
   "features": {
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "languageserver"
+    },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
-      "installTinyTex": "true"
+      "installTinyTex": "false"
     }
   },
   "customizations": {
@@ -23,6 +26,5 @@
         "jaydesl.vscode-r-arrow"
       ]
     }
-  },
-  "postCreateCommand": "R -e 'install.packages(\"languageserver\")'"
+  }
 }
