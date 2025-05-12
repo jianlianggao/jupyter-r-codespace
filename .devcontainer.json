@@ -20,6 +20,15 @@
       "installTinyTex": "false"
     }
   },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "reditorsupport.r",
+        "ms-toolsai.jupyter",
+        "jaydesl.vscode-r-arrow"
+      ]
+    }
+  },
   "postAttachCommand": {
         "rstudio-start": "rserver"
     },
@@ -31,14 +40,6 @@
             "label": "RStudio IDE"
         }
     },
-  "postCreateCommand": "R -e 'install.packages(c(\"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()'",
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "reditorsupport.r",
-        "ms-toolsai.jupyter",
-        "jaydesl.vscode-r-arrow"
-      ]
-    }
-  }
+  "postCreateCommand": "R -e 'install.packages(c(\"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()'"
+  
 }
