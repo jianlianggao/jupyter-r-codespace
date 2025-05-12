@@ -40,6 +40,6 @@
             "label": "RStudio IDE"
         }
     },
-  "postCreateCommand": "R -e 'install.packages(c(\"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()'"
+  "postCreateCommand": "R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()'"
   
 }
