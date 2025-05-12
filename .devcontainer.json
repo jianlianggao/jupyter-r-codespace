@@ -1,5 +1,6 @@
 {
-  "image": "rocker/binder:4.3",
+  //"image": "rocker/binder:4.3",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
   "settings": {
     "extensions.ignoreRecommendations": true,
     "git.enableSmartCommit": true,
