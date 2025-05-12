@@ -1,7 +1,7 @@
 {
   //"image": "rocker/binder:4.3",
-  "image": "rocker/verse:4.3",
-  //"image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+  //"image": "rocker/verse:4.3",
+  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
   "settings": {
     "extensions.ignoreRecommendations": true,
     "git.enableSmartCommit": true,
@@ -13,9 +13,9 @@
     }
   },
   "features": {
-    //"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-    //  "packages": "languageserver"
-    //},
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "languageserver"
+    },
     "ghcr.io/rocker-org/devcontainer-features/rstudio-server": {},
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
       "installTinyTex": "false"
@@ -26,12 +26,13 @@
       "extensions": [
         "reditorsupport.r",
         "ms-toolsai.jupyter",
-        "jaydesl.vscode-r-arrow"
+        "jaydesl.vscode-r-arrow",
+        "ms-python.python"
       ]
     }
   },
   "postAttachCommand": {
-        "rstudio-start": "/usr/lib/rstudio-server/bin/rserver --www-port 8787 --server-daemonize 0 --auth-none 1 --auth-pam-require-password 0 --www-address 0.0.0.0 --server-data-dir /tmp/rstudio"
+        "rstudio-start": "rserver"
     },
     "forwardPorts": [
         8787
@@ -41,6 +42,6 @@
             "label": "RStudio IDE"
         }
     },
-  "postCreateCommand": "pip install jupyter && R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' && mkdir -p /tmp/rstudio && chown -R rstudio:rstudio /tmp/rstudio"
+  "postCreateCommand": "pip install jupyter && R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' "
   
 }
