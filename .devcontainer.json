@@ -2,7 +2,7 @@
   //"image": "rocker/binder:4.3",
   //"image": "rocker/verse:4.3",
   //"image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
-  "image": "jupyter/datascience-notebook:latest",
+  "image": "ghcr.io/rocker-org/devcontainer/tidyverse:4",
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
       "packages": "languageserver"
@@ -22,9 +22,9 @@
       ]
     }
   },
-  //"postAttachCommand": {
-  //      "rstudio-start": "rserver"
-  //  },
+  "postAttachCommand": {
+        "rstudio-start": "rserver"
+    },
     "forwardPorts": [
         8787
     ],
@@ -33,6 +33,6 @@
             "label": "RStudio IDE"
         }
     },
-  "postCreateCommand": "sudo apt-get update && export DEBIAN_FRONTEND=noninteractive && pip install -y gdebi-core && wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2023.12.1-402-amd64.deb && sudo gdebi -n rstudio-server-2023.12.1-402-amd64.deb && sudo rstudio-server start && R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' "
+  "postCreateCommand": "R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' && R -e 'IRkernel::installspec()'"
   
 }
