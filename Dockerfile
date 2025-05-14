@@ -1,4 +1,5 @@
 FROM ubuntu:20.04
+ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y r-base gdebi-core wget python3 python3-pip
 RUN wget https://download1.rstudio.org/server/bionic/amd64/rstudio-server-2021.09.0-372-amd64.deb
 RUN gdebi -n rstudio-server-2021.09.0-372-amd64.deb
