@@ -1,5 +1,6 @@
 {
   "image": "rocker/binder:4.3",
+  "remoteUser": "root",
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
       "packages": "languageserver"
