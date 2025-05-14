@@ -7,3 +7,9 @@ Quarto is provided for exporting the Notebook to presentation formats. Render th
 ```bash
 quarto render notebook.ipynb --to pdf
 ```
+
+# RStudio ENvironment
+
+in PORTS tab, click on the one with 8787 to open RStudio
+login with: rstudio
+password: rstudio
