@@ -1,36 +1,6 @@
 {
-  "image": "rocker/binder:4.3",
-  //"remoteUser": "root",
-  "features": {
-    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-      "packages": "languageserver"
-    },
-    "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
-      "installTinyTex": "false"
-    },
-    "ghcr.io/rocker-org/devcontainer-features/rstudio-server": {}
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "reditorsupport.r",
-        "ms-toolsai.jupyter",
-        "jaydesl.vscode-r-arrow"
-      ]
-    }
-  },
-  "postAttachCommand": {
-        "rstudio-start": "rserver"
-    },
-  "portsAttributes": {
-    "8787": {
-      "label": "RStudio Server",
-      "onAutoForward": "openBrowser"
-    }
-  },
-  //"postStartCommand": "sudo rserver --www-port 8787 --www-address 0.0.0.0 --auth-none=1 --server-daemonize=0",
-  //"postStartCommand": "sudo rstudio-server start && sudo rserver",
-  "remoteEnv": {
-    "DISABLE_AUTH": "true"
-  }
+  "name": "R and Python with RStudio",
+  "build": { "dockerfile": "Dockerfile" },
+  "forwardPorts": [8787],
+  "portsAttributes": { "8787": { "label": "RStudio", "onAutoForward": "openBrowser" } }
 }
