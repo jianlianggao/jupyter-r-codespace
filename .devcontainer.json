@@ -1,22 +1,16 @@
 {
-  //"image": "rocker/binder:4.3",
-  //"image": "rocker/verse:4.3",
-  "image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+  "image": "rocker/binder:4.3",
   "settings": {
     "extensions.ignoreRecommendations": true,
     "git.enableSmartCommit": true,
     "git.confirmSync": false,
     "git.autofetch": true,
-    "git.rebaseWhenSync": true,
-    "files.exclude": {
-      ".devcontainer.json": true
-    }
+    "git.rebaseWhenSync": true
   },
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
       "packages": "languageserver"
     },
-    "ghcr.io/rocker-org/devcontainer-features/rstudio-server": {},
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:latest": {
       "installTinyTex": "false"
     }
@@ -26,22 +20,22 @@
       "extensions": [
         "reditorsupport.r",
         "ms-toolsai.jupyter",
-        "jaydesl.vscode-r-arrow",
-        "ms-python.python"
+        "jaydesl.vscode-r-arrow"
       ]
     }
   },
-  "postAttachCommand": {
-        "rstudio-start": "rserver"
-    },
-    "forwardPorts": [
-        8787
-    ],
-    "portsAttributes": {
-        "8787": {
-            "label": "RStudio IDE"
-        }
-    },
-  "postCreateCommand": "pip install jupyter && R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' "
-  
+
+  // NEW: install and start RStudio Server
+  "postCreateCommand": "set -eux && sudo apt-get update && sudo apt-get install -y gdebi-core wget && wget -O /tmp/rstudio-server.deb https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2025.05.1-513-amd64.deb && sudo gdebi -n /tmp/rstudio-server.deb && sudo useradd -m rstudio || true && echo rstudio:rstudio | sudo chpasswd && sudo rstudio-server start",
+
+  // NEW: forward RStudio port
+  "forwardPorts": [8787],
+  "portsAttributes": {
+    "8787": {
+      "label": "RStudio",
+      "protocol": "http",
+      "onAutoForward": "openBrowser",
+      "visibility": "private"
+    }
+  }
 }
