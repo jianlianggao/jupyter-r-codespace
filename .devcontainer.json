@@ -1,5 +1,6 @@
 {
   "image": "rocker/binder:4.3",
+  "containerUser": "root",
   "settings": {
     "extensions.ignoreRecommendations": true,
     "git.enableSmartCommit": true,
@@ -26,8 +27,10 @@
   },
 
   // NEW: install and start RStudio Server
-  "postCreateCommand": "set -eux && sudo apt-get update && sudo apt-get install -y gdebi-core wget && wget -O /tmp/rstudio-server.deb https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2025.05.1-513-amd64.deb && sudo gdebi -n /tmp/rstudio-server.deb && sudo useradd -m rstudio || true && echo rstudio:rstudio | sudo chpasswd && sudo rstudio-server start",
+  "postCreateCommand": "set -eux && apt-get update && apt-get install -y --no-install-recommends gdebi-core wget ca-certificates && wget -O /tmp/rstudio-server.deb https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2025.05.1-513-amd64.deb && gdebi -n /tmp/rstudio-server.deb && rm -f /tmp/rstudio-server.deb && useradd -m -s /bin/bash rstudio || true && echo rstudio:rstudio |  chpasswd &&  rstudio-server start",
 
+  "postStartCommand": "rstudio-server restart || rstudio-server start",
+  
   // NEW: forward RStudio port
   "forwardPorts": [8787],
   "portsAttributes": {
