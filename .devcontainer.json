@@ -19,7 +19,8 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "vsls-contrib.codetour",
-        "GitHub.copilot"
+        "GitHub.copilot",
+        "jaydesl.vscode-r-arrow"
         //"reditorsupport.r"
       ]
     }
