@@ -41,5 +41,5 @@
    "postAttachCommand": "sudo rstudio-server start", // Uncomment this line to start RStudio server automatically{
         //"rstudio-start": "rserver"
     //},
-    "postCreateCommand": "pip install jupyter && R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' "
+    "postCreateCommand": "R -e 'install.packages(c(\"IRkernel\", \"languageserver\", \"dplyr\", \"data.table\", \"PerformanceAnalytics\", \"dtplyr\", \"ggplot2\"), repos=\"https://cloud.r-project.org/\")' && R -e 'tinytex::install_tinytex()' "
 }
